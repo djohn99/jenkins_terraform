@@ -11,8 +11,10 @@ chkconfig jenkins on
 echo "Install git"
 yum install -y git
 
-sudo pip install ansible
-sudo pip install --upgrade pip
+echo "Install docker"
+yum install -y docker
+# sudo pip install ansible
+# sudo pip install --upgrade pip
 
 echo "Install nodejs"
 sudo curl --silent --location https://rpm.nodesource.com/setup_12.x | bash -
@@ -37,5 +39,15 @@ mv /tmp/node-agent.groovy /var/lib/jenkins/init.groovy.d/node-agent.groovy
 chown -R jenkins:jenkins /var/lib/jenkins/jenkins.install.UpgradeWizard.state
 mv /tmp/jenkins /etc/sysconfig/jenkins
 chmod +x /tmp/install-plugins.sh
+chmod +x /tmp/dockerinstall.sh
+chmod +x /tmp/nagios-install.sh
+chmod +x /tmp/nrpe-install.sh
+chmod +x /tmp/minikube.sh
+bash /tmp/dockerinstall.sh
+bash /tmp/nagios-install.sh
+bash /tmp/nrpe-install.sh
+bash /tmp/minikube.sh
 bash /tmp/install-plugins.sh
+service docker start
+systemctl enable docker
 service jenkins start

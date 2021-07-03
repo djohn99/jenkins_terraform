@@ -60,6 +60,11 @@
         },
         {
             "type" : "file",
+            "source" : "./dockerinstall.sh",
+            "destination" : "/tmp/dockerinstall.sh"
+        },
+        {
+            "type" : "file",
             "source" : "./minikube.sh",
             "destination" : "/tmp/minikube.sh"
         },

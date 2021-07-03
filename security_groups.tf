@@ -27,7 +27,7 @@ resource "aws_security_group_rule" "dav-jenkins_from_source_ingress_ssh" {
   description       = "ssh to dav-jenkins_sg"
 }
 
-# web
+# jenkins
 resource "aws_security_group_rule" "dav-jenkins_from_source_ingress_webui" {
   type              = "ingress"
   from_port         = 8080
@@ -35,7 +35,18 @@ resource "aws_security_group_rule" "dav-jenkins_from_source_ingress_webui" {
   protocol          = "tcp"
   security_group_id = "${aws_security_group.dav-jenkins_sg.id}"
   cidr_blocks       = ["0.0.0.0/0", "172.31.0.0/16"]
-  description       = "jenkins web"
+  description       = "jenkins"
+}
+
+# smtp
+resource "aws_security_group_rule" "dav-jenkins_from_source_ingress_webui" {
+  type              = "ingress"
+  from_port         = 25
+  to_port           = 25
+  protocol          = "tcp"
+  security_group_id = "${aws_security_group.dav-jenkins_sg.id}"
+  cidr_blocks       = ["0.0.0.0/0", "172.31.0.0/16"]
+  description       = "smtp"
 }
 
 
