@@ -1,13 +1,13 @@
 # Security Group:
-resource "aws_security_group" "jenkins_sg" {
-  name        = "jenkins_sg"
+resource "aws_security_group" "dav-jenkins_sg" {
+  name        = "dav-jenkins_sg"
   description = "Jenkins Server: created by Terraform for [dev]"
 
   # legacy name of VPC ID
   vpc_id = "${var.vpc_id}"
 
   tags = {
-    Name = "jenkins"
+    Name = "dav-jenkins"
     env  = "dev"
   }
 }
@@ -17,23 +17,23 @@ resource "aws_security_group" "jenkins_sg" {
 ###############################################################################
 
 # ssh
-resource "aws_security_group_rule" "jenkins_from_source_ingress_ssh" {
+resource "aws_security_group_rule" "dav-jenkins_from_source_ingress_ssh" {
   type              = "ingress"
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.jenkins_sg.id}"
+  security_group_id = "${aws_security_group.dav-jenkins_sg.id}"
   cidr_blocks       = ["0.0.0.0/0", "172.31.0.0/16"]
-  description       = "ssh to jenkins_sg"
+  description       = "ssh to dav-jenkins_sg"
 }
 
 # web
-resource "aws_security_group_rule" "jenkins_from_source_ingress_webui" {
+resource "aws_security_group_rule" "dav-jenkins_from_source_ingress_webui" {
   type              = "ingress"
   from_port         = 8080
   to_port           = 8080
   protocol          = "tcp"
-  security_group_id = "${aws_security_group.jenkins_sg.id}"
+  security_group_id = "${aws_security_group.dav-jenkins_sg.id}"
   cidr_blocks       = ["0.0.0.0/0", "172.31.0.0/16"]
   description       = "jenkins web"
 }
@@ -44,12 +44,12 @@ resource "aws_security_group_rule" "jenkins_from_source_ingress_webui" {
 # ALL OUTBOUND
 ###############################################################################
 
-resource "aws_security_group_rule" "jenkins_to_other_machines_ssh" {
+resource "aws_security_group_rule" "dav-jenkins_to_other_machines_ssh" {
   type              = "egress"
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
-  security_group_id = "${aws_security_group.jenkins_sg.id}"
+  security_group_id = "${aws_security_group.dav-jenkins_sg.id}"
   cidr_blocks       = ["0.0.0.0/0"]
   description       = "allow jenkins master to ssh to other machines"
 }

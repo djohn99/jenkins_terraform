@@ -3,7 +3,7 @@ resource "aws_elb" "jenkins_elb" {
   subnets                   = ["subnet-0c0c2f9dff155fe46"]
   cross_zone_load_balancing = true
   security_groups           = ["${aws_security_group.elb_jenkins_sg.id}"]
-  instances                 = ["${aws_instance.jenkins.id}"]
+  instances                 = ["${aws_instance.dav-jenkins.id}"]
 
   listener {
     instance_port      = 8080

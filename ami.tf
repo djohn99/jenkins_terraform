@@ -1,20 +1,20 @@
 provider "aws" {
   region = var.region
 }
-data "aws_ami" "jenkins" {
+data "aws_ami" "dav-jenkins" {
   most_recent = true
-  owners      = [""]
+  owners      = ["511559259343"]
 
   filter {
     name   = "name"
-    values = ["jenkins"]
+    values = ["dav-jenkins"]
   }
 }
 
 output "ami_id" {
-  value = "${data.aws_ami.jenkins.id}"
+  value = "${data.aws_ami.dav-jenkins.id}"
 }
 
 output "name" {
-  value = "${data.aws_ami.jenkins.name}"
+  value = "${data.aws_ami.dav-jenkins.name}"
 }

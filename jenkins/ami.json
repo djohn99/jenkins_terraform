@@ -11,7 +11,7 @@
             "instance_type" : "t2.micro",
             "source_ami" : "{{user `source_ami`}}",
             "ssh_username" : "ec2-user",
-            "ami_name" : "jenkins",
+            "ami_name" : "dav-jenkins",
             "ami_description" : "Amazon Linux Image with Jenkins Server",
             "run_tags" : {
                 "Name" : "packer-builder-docker"
@@ -62,6 +62,16 @@
             "type" : "file",
             "source" : "./minikube.sh",
             "destination" : "/tmp/minikube.sh"
+        },
+        {
+            "type" : "file",
+            "source" : "./nagios-install.sh",
+            "destination" : "/tmp/nagios-install.sh"
+        },
+        {
+            "type" : "file",
+            "source" : "./nrpe-install.sh",
+            "destination" : "/tmp/nrpe-install.sh"
         },
         {
             "type" : "shell",

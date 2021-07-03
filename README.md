@@ -16,6 +16,4 @@ Provision infrastructure on AWS with terraform scripts files.
 
 ## Set the proxy if not able to connect from EK network.
 ```
-set HTTP_PROXY=http://zscaler.emirates.com:10068
-set HTTPS_PROXY=http://zscaler.emirates.com:10068
 ```

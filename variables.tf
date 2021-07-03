@@ -60,7 +60,7 @@ variable "key_name" {
 
 // Jenkins Master
 
-variable "chris-jenkins_instance_type" {
+variable "dav-jenkins_instance_type" {
   description = "Jenkins Master instance type"
   default     = "t3.small"
 }

@@ -1,8 +1,8 @@
-resource "aws_instance" "jenkins" {
-  ami                    = "${data.aws_ami.jenkins.id}"
-  instance_type          = "${var.jenkins_instance_type}"
+resource "aws_instance" "dav-jenkins" {
+  ami                    = "${data.aws_ami.dav-jenkins.id}"
+  instance_type          = "${var.dav-jenkins_instance_type}"
   key_name               = "${var.key_name}"
-  vpc_security_group_ids = ["${aws_security_group.jenkins_sg.id}"]
+  vpc_security_group_ids = ["${aws_security_group.dav-jenkins_sg.id}"]
   subnet_id              = "${element(var.vpc_private_subnets, 0)}"
 
   root_block_device {
@@ -12,7 +12,7 @@ resource "aws_instance" "jenkins" {
   }
 
   tags = {
-    Name   = "jenkins"
+    Name   = "dav-jenkins"
     Author = "djohn"
     Tool   = "Terraform"
   }
