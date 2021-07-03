@@ -39,7 +39,7 @@ resource "aws_security_group_rule" "dav-jenkins_from_source_ingress_webui" {
 }
 
 # smtp
-resource "aws_security_group_rule" "dav-jenkins_from_source_ingress_webui" {
+resource "aws_security_group_rule" "dav-jenkins_from_source_ingress_smtp" {
   type              = "ingress"
   from_port         = 25
   to_port           = 25

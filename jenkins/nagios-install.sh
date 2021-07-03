@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Install tools and libraries"
-yum install -y gcc glibc glic-common wget unzip httpd php gd gd-devel perl postfix
+yum install -y gcc glibc glic-common wget unzip httpd telnet php gd gd-devel perl postfix
 
 wget -O nagioscore.tar.gz https://github.com/NagiosEnterprises/nagioscore/archive/nagios-4.4.3.tar.gz	
 tar xzvf nagioscore.tar.gz	
