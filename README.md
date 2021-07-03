@@ -11,9 +11,3 @@ Pull a stable AMI and install/upgrade with required softwares and re-pack into n
 Provision infrastructure on AWS with terraform scripts files.
 
 * Refer to 'terraform/README.md' for more information
-
-
-
-## Set the proxy if not able to connect from EK network.
-```
-```
