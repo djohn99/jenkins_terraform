@@ -2,8 +2,8 @@
     "variables" : {
         "region" : "us-east-1",
         "source_ami" : "ami-0d5eff06f840b45e9",
-        "access_key": "{AKIAXOG2O2TH3OTEYBEC}",
-        "secret_key": "{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}"
+        "access_key": "{{env `access_key`}}",
+        "secret_key": "{{env `secret_key`}}"
     },
     "builders" : [
         {
