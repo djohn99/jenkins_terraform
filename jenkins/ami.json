@@ -40,7 +40,7 @@
         },
         {
             "type" : "file",
-            "source" : "/Users/djohn/Downloads/jong-prod.pem",
+            "source" : "./jong-prod.pem",
             "destination" : "/tmp/id_rsa"
         },
         {
