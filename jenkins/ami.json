@@ -11,7 +11,7 @@
             "assume_role": {
                 "role_arn"    :  "arn:aws:iam::511559259343:role/packer-build",
                 "session_name":  "Packer",
-                "external_id" :  ""
+                "external_id" :  "{{user `external_id`}}"
             },
             "force_deregister": "true",
             "force_delete_snapshot": "true",
