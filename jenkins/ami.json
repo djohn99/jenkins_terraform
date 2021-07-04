@@ -1,7 +1,9 @@
 {
     "variables" : {
         "region" : "us-east-1",
-        "source_ami" : "ami-0d5eff06f840b45e9"
+        "source_ami" : "ami-0d5eff06f840b45e9",
+        "AWS_ACCESS_KEY_ID": "${{ secrets.AWS_ACCESS_KEY_ID }}",
+        "AWS_SECRET_ACCESS_KEY": "${{ secrets.AWS_SECRET_ACCESS_KEY }}",
     },
     "builders" : [
         {
