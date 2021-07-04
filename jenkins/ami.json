@@ -2,13 +2,14 @@
     "variables" : {
         "region" : "us-east-1",
         "source_ami" : "ami-0d5eff06f840b45e9",
-        "aws_secret_key": "${{ env 'AWS_SECRET_ACCESS_KEY' }}"
+        "access_key": "AKIAXOG2O2TH67CZ5D6K",
+        "secret_key": "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"
     },
     "builders" : [
         {
             "type" : "amazon-ebs",
-            "AWS_ACCESS_KEY_ID": "${{ secrets.AWS_ACCESS_KEY_ID }}",
-            "AWS_SECRET_ACCESS_KEY": "${{ secrets.AWS_SECRET_ACCESS_KEY }}",
+            "access_key": "{{user `access_key`}}",
+            "secret_key": "{{user `secret_key`}}",
             "profile" : "default",
             "region" : "{{user `region`}}",
             "instance_type" : "t2.micro",
