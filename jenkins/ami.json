@@ -2,19 +2,16 @@
     "variables" : {
         "region" : "us-east-1",
         "source_ami" : "ami-0d5eff06f840b45e9",
-        "access_key": "{{env `access_key`}}",
-        "secret_key": "{{env `secret_key`}}"
+        "aws_access_key": "",
+        "aws_secret_key": ""
     },
     "builders" : [
         {
             "type" : "amazon-ebs",
-            "assume_role": {
-                "role_arn"    :  "arn:aws:iam::511559259343:role/packer-build",
-                "session_name":  "Packer",
-                "external_id" :  "Packer_id"
-            },
-            "access_key": "{{user `access_key`}}",
-            "secret_key": "{{user `secret_key`}}",
+            "force_deregister": "true",
+            "force_delete_snapshot": "true",
+            "access_key": "{{user `aws_access_key`}}",
+            "secret_key": "{{user `aws_secret_key`}}",
             "profile" : "default",
             "region" : "{{user `region`}}",
             "instance_type" : "t2.micro",
