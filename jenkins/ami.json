@@ -2,12 +2,16 @@
     "variables" : {
         "region" : "us-east-1",
         "source_ami" : "ami-0d5eff06f840b45e9",
-        "access_key": "",
-        "secret_key": ""
+        "access_key": "{AKIAXOG2O2TH3OTEYBEC}",
+        "secret_key": "{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}"
     },
     "builders" : [
         {
             "type" : "amazon-ebs",
+            "assume_role": {
+                "role_arn"    :  "arn:aws:iam::511559259343:role/packer-build",
+                "session_name":  "Packer",
+                "external_id" :  "Packer_id",
             "access_key": "{{user `access_key`}}",
             "secret_key": "{{user `secret_key`}}",
             "profile" : "default",
