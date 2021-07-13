@@ -16,16 +16,8 @@ jobs:
           varFile: 'packer-vars.json'
           workingDir: 'jenkins'
       - name: terraform init
-        uses: hashicorp/setup-terraform@v1
+        uses: ExitoLab/packer_build_action_aws@v0.2.10
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
-            #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
-            #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
-            #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
-
-            <details><summary>Show Plan</summary>
           templateFile: 'Provision-Jenkins.sh'
           varFile: 'terraform-vars.json'
           workingDir: ''
