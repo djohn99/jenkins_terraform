@@ -19,10 +19,12 @@ jobs:
       - uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
+      - uses: hashicorp/setup-terraform@v1
         id: init
         run: terraform init
 
       - name: Terraform Plan
+      - uses: hashicorp/setup-terraform@v1
         id: plan
         # if: github.event_name == 'push'
         run: terraform plan

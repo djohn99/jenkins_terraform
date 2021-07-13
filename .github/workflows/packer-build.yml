@@ -3,7 +3,7 @@ name: Run packer build on a template file
 on:
   push:
     branches:
-        - 'master'
+        - 'feature/dav'
 jobs:
   packer_build:
     runs-on: ubuntu-latest
