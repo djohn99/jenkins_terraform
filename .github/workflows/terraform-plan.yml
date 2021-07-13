@@ -12,7 +12,9 @@ jobs:
       - name: Checkout
       - uses: hashicorp/setup-terraform@v1
         with:
-          run: terraform init
+          templateFile: 'Provision-Jenkins.sh'
+          varFile: 'terraform-vars.json'
+          workingDir: ''
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
