@@ -8,20 +8,14 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
       - uses: actions/checkout@v2
+      - name: Checkout
 
-      - name: Set up Terraform
       - uses: hashicorp/setup-terraform@v1
-
-      - name: Terraform Init
-        id: init
-        run: terraform init
-
-      - name: Terraform Plan
-        id: plan
-        # if: github.event_name == 'push'
-        run: terraform plan
+      - name: Set up Terraform
+        with:
+          run: terraform init
+          run: terraform plan
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
