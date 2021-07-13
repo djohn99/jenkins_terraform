@@ -3,7 +3,7 @@ name: Run Terraform-Apply-Infra-Apply
 on:
   push:
     branches:
-        - 'master'
+        - 'feature/dav'
 jobs:
   terraform:
     runs-on: ubuntu-latest
