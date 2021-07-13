@@ -15,6 +15,12 @@ jobs:
           templateFile: 'ami.json'
           varFile: 'packer-vars.json'
           workingDir: 'jenkins'
+      - name: terraform init
+        uses: hashicorp/setup-terraform@v1
+        with:
+          templateFile: 'Provision-Jenkins.sh'
+          varFile: 'packer-vars.json'
+          workingDir: ''
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
