@@ -1,14 +1,14 @@
-name: Run Terraform-Plan-Infra-Plan
+name: Run packer build on a template file
 
 on:
   push:
     branches:
         - 'master'
 jobs:
-  terraform:
+  packer_build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - name: Checkout
       - uses: hashicorp/setup-terraform@v1
         with:
