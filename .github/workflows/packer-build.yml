@@ -24,10 +24,10 @@ jobs:
             #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
             #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
             #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
-              
+
             <details><summary>Show Plan</summary>
           templateFile: 'Provision-Jenkins.sh'
-          varFile: 'packer-vars.json'
+          varFile: 'terraform-vars.json'
           workingDir: ''
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
