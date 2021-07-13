@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Packer build
-        uses: riznob/packer-build-action@v1.1
+        uses: ExitoLab/packer_build_action_aws@v0.2.10
         with:
           templateFile: 'ami.json'
           varFile: 'packer-vars.json'
