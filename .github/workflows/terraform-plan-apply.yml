@@ -25,6 +25,11 @@ jobs:
         id: plan
         # if: github.event_name == 'push'
         run: terraform plan
+        continue-on-error: true
+
+      - name: 'Terraform Plan Status'
+        if: setps.plan.outcome == 'failure'
+        run: exit 1
         
         # with:
         #   templateFile: 'Provision-Jenkins.sh'
