@@ -13,25 +13,28 @@ jobs:
       - name: 'Terraform Init'
         uses: hashicorp/setup-terraform@v1
         with:
-          tf_actions_version: 0.12.13
-          tf_actions_subcommand: 'init'
-          tf_actions_working_dir: '.'
-          tf_actions_comment: true
+          templateFile: 'Provision-Jenkins.sh'
+          varFile: 'terraform-vars.json'
+          workingDir: '.'
+          # tf_actions_version: 0.12.13
+          # tf_actions_subcommand: 'init'
+          # tf_actions_working_dir: '.'
+          # tf_actions_comment: true
           # tf_actions_cli_credentials_hostname: app.terraform.io 
           # tf_actions_cli_credentials_token: ${{ secrets.TF_API_TOKEN }}
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
           AWS_DEFAULT_REGION: us-east-1
-      - name: 'Terraform Plan'
-        uses: hashicorp/setup-terraform@v1
-        with:
-          # tf_actions_version: 0.12.13
-          tf_actions_subcommand: 'plan'
-          tf_actions_working_dir: '.'
-      - name: 'Terraform Apply'
-        uses: hashicorp/setup-terraform@v1
-        with:
-          # tf_actions_version: 0.12.13
-          tf_actions_subcommand: 'apply -auto-approve'
-          tf_actions_working_dir: '.'
+      # - name: 'Terraform Plan'
+      #   uses: hashicorp/setup-terraform@v1
+      #   with:
+      #     # tf_actions_version: 0.12.13
+      #     tf_actions_subcommand: 'plan'
+      #     tf_actions_working_dir: '.'
+      # - name: 'Terraform Apply'
+      #   uses: hashicorp/setup-terraform@v1
+      #   with:
+      #     # tf_actions_version: 0.12.13
+      #     tf_actions_subcommand: 'apply -auto-approve'
+      #     tf_actions_working_dir: '.'
