@@ -1,4 +1,4 @@
-name: 'Terraform GitHub Actions'
+name: 'Terraform Plan Actions'
 on:
   push:
     branches:
@@ -11,7 +11,7 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@master
       - name: 'Terraform Init'
-        uses: hashicorp/terraform-github-actions@master
+        uses: hashicorp/setup-terraform@v1
         with:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'init'
@@ -24,7 +24,7 @@ jobs:
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
           AWS_DEFAULT_REGION: us-east-1
       - name: 'Terraform Plan'
-        uses: hashicorp/terraform-github-actions@master
+        uses: hashicorp/setup-terraform@v1
         with:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'plan'
