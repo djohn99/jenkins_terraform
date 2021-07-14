@@ -16,6 +16,9 @@ jobs:
           templateFile: 'Provision-Jenkins.sh'
           varFile: 'terraform-vars.json'
           workingDir: '.'
+          cli_config_credentials_hostname: aws
+          terraform_version: latest
+          terraform_wrapper: true
           # tf_actions_version: 0.12.13
           # tf_actions_subcommand: 'init'
           # tf_actions_working_dir: '.'
