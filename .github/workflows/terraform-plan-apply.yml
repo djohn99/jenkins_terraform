@@ -26,6 +26,6 @@ jobs:
       - name: 'Terraform Plan'
         uses: hashicorp/setup-terraform@v1
         with:
-          tf_actions_version: 0.12.13
+          # tf_actions_version: 0.12.13
           tf_actions_subcommand: 'plan'
           tf_actions_working_dir: '.'
