@@ -4,7 +4,7 @@ resource "aws_vpc" "default" {
   enable_dns_hostnames = true
 
   tags = {
-    Name   = "172.31.0.0/16"
+    Name   = "jenkins-vpc"
     Author = "djohn"
     Tool   = "Terraform"
   }
