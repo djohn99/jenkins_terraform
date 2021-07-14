@@ -1,15 +1,15 @@
-name: Run Terraform-Plan-Infra-Plan
-
+name: 'Terraform GitHub Actions'
 on:
   push:
     branches:
-        - 'master'
+      - 'master'
 jobs:
   terraform:
+    name: 'Terraform'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-      - uses: actions/checkout@v2
+      - name: 'Checkout'
+        uses: actions/checkout@master
       - name: 'Terraform Init'
         uses: hashicorp/terraform-github-actions@master
         with:
@@ -17,6 +17,8 @@ jobs:
           tf_actions_subcommand: 'init'
           tf_actions_working_dir: '.'
           tf_actions_comment: true
+          # tf_actions_cli_credentials_hostname: app.terraform.io 
+          # tf_actions_cli_credentials_token: ${{ secrets.TF_API_TOKEN }}
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
