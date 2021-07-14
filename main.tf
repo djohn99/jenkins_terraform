@@ -1,8 +1,8 @@
 terraform {
     
     backend "s3" {
-    bucket = "mainfile-tf-bucket"
-    key    = "global/s3/terraform.tfstate"
+    bucket = "dav-tf-bucket"
+    key    = "jenkins/terraform.tfstate"
     region = "us-east-1"
   }
 }
