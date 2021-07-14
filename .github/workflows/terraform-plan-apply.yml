@@ -20,6 +20,11 @@ jobs:
       - name: 'Terraform Init'
         id: init
         run: terraform init
+
+      - name: 'Terraform Plan'
+        id: plan
+        # if: github.event_name == 'push'
+        run: terraform plan
         
         # with:
         #   templateFile: 'Provision-Jenkins.sh'
