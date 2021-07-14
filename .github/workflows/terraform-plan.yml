@@ -1,21 +1,29 @@
-name: Run packer build on a template file
+name: Run Terraform-Plan-Infra-Plan
 
 on:
   push:
     branches:
-      - 'master'
+        - 'master'
 jobs:
-  packer_build:
+  terraform:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
       - name: Checkout
-      - uses: hashicorp/setup-terraform@v1
+      - uses: actions/checkout@v2
+      - name: 'Terraform Init'
+        uses: hashicorp/terraform-github-actions@master
         with:
-          templateFile: 'Provision-Jenkins.sh'
-          varFile: 'terraform-vars.json'
-          workingDir: ''
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'init'
+          tf_actions_working_dir: '.'
+          tf_actions_comment: true
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
           AWS_DEFAULT_REGION: us-east-1
+      - name: 'Terraform Plan'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'plan'
+          tf_actions_working_dir: '.'
