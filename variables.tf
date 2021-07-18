@@ -5,7 +5,7 @@ variable "region"{
 }
 
 variable "owner" {
-  c
+  default = "default"
   description = "owner"
 }
 variable "shared_credentials_file" {
@@ -27,25 +27,13 @@ variable "jenkins_password" {
   default = "admin"
 }
 
-
-
-
-
-
-
-
-
 // Default variables
-
 variable "vpc_cidr_block" {
   description = "VPC CIDR block"
   default     = "10.0.0.0/16"
 }
 
-
-
 // Jenkins Master
-
 variable "dav-jenkins_instance_type" {
   description = "Jenkins Master instance type"
   default     = "t3.small"
