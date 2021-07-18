@@ -4,11 +4,12 @@ resource "aws_security_group" "dav-jenkins_sg" {
   description = "Jenkins Server: created by Terraform for [dev]"
 
   # legacy name of VPC ID
-  vpc_id = "${var.vpc_id}"
+  vpc_id = "${module.vpc.vpc_id}"
 
   tags = {
     Name = "dav-jenkins"
     env  = "dev"
+    Environment = "dav-jenkins"
   }
 }
 
@@ -68,7 +69,7 @@ resource "aws_security_group_rule" "dav-jenkins_to_other_machines_ssh" {
 resource "aws_security_group" "elb_jenkins_sg" {
   name        = "elb_jenkins_sg"
   description = "Allow https traffic"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = "${module.vpc.vpc_id}"
 
   ingress {
     from_port   = "443"
@@ -88,5 +89,6 @@ resource "aws_security_group" "elb_jenkins_sg" {
     Name   = "elb_jenkins_sg"
     Author = "djohn"
     Tool   = "Terraform"
+    Environment = "dav-jenkins"
   }
 }

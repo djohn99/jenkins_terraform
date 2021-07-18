@@ -3,7 +3,7 @@ provider "aws" {
 }
 data "aws_ami" "dav-jenkins" {
   most_recent = true
-  owners      = ["511559259343"]
+  owners      = [var.owner]
 
   filter {
     name   = "name"
