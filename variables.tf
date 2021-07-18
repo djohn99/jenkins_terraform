@@ -1,6 +1,6 @@
 // Global variables
 variable "region"{
-  default = "default"
+  default = "us-east-1"
   description = "region"
 }
 
