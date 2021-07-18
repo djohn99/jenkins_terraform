@@ -4,6 +4,7 @@ variable "region"{
 }
 
 variable "owner" {
+  default = "default"
   description = "owner"
 }
 variable "shared_credentials_file" {
