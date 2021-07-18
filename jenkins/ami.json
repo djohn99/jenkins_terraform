@@ -46,11 +46,6 @@
         },
         {
             "type" : "file",
-            "source" : "./jong-prod.pem",
-            "destination" : "/tmp/id_rsa"
-        },
-        {
-            "type" : "file",
             "source" : "./node-agent.groovy",
             "destination" : "/tmp/node-agent.groovy"
         },
