@@ -1,10 +1,11 @@
 // Global variables
 variable "region"{
+  default = "default"
   description = "region"
 }
 
 variable "owner" {
-  default = "default"
+  c
   description = "owner"
 }
 variable "shared_credentials_file" {
