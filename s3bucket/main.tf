@@ -18,3 +18,14 @@ resource "aws_s3_bucket" "terraform_state" {
   #  }
   #}
 }
+
+# resource "aws_s3_bucket" "terraform-state-storage-s3" {
+#     bucket = "daveks-tf-bucket"
+ 
+#     versioning {
+#       enabled = true
+#     }
+#     tags= {
+#       Name = "S3 EKS Remote Terraform State Store"
+#     }      
+# }
